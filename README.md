@@ -68,7 +68,7 @@ For a complete, working example, refer to the [login example](https://github.com
   - [Sean Fisher](https://seafish.io)
   - [Sluggy Bear](http://github.com/slugbay) - Original [Microsoft OneDrive](https://github.com/slugbay/passport-onedrive) strategy, upon which this is based
 
-  Copyright (c) 2016 Sean Fisher <[https://seafish.io](https://seafish.io)>
+  Copyright (c) 2017 Sean Fisher <[https://seafish.io](https://seafish.io)>
 
 ## Thanks
 
