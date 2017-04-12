@@ -4,9 +4,8 @@
 with [Microsoft Graph](https://graph.microsoft.io/) using the OAuth 2.0 API.
 
 This module lets you authenticate using Microsoft, in your Node.js applications.  
-By plugging into Passport, Microsoft
-authentication can be easily and unobtrusively integrated into any application or
-framework that supports [Connect](http://www.senchalabs.org/connect/)-style
+By plugging into Passport, Microsoft authentication can be easily and unobtrusively
+integrated into any application or framework that supports [Connect](http://www.senchalabs.org/connect/)-style
 middleware, including [Express](http://expressjs.com/).
 
 ## Install
