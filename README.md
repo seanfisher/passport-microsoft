@@ -10,6 +10,8 @@ middleware, including [Express](http://expressjs.com/).
 
 ## Install
 
+Install via [npm](https://www.npmjs.com/package/passport-microsoft)
+
     $ npm install passport-microsoft
 
 ## Usage
@@ -64,10 +66,10 @@ For a complete, working example, refer to the [login example](https://github.com
 
 ## Credits
 
-  - [Sean Fisher](https://seafish.io)
+  - [Sean Fisher](https://seafish.io) - [passport-microsoft on Github](https://github.com/seanfisher/passport-microsoft)
   - [Sluggy Bear](http://github.com/slugbay) - Original [Microsoft OneDrive](https://github.com/slugbay/passport-onedrive) strategy, upon which this is based
 
-  Copyright (c) 2017 Sean Fisher <[https://seafish.io](https://seafish.io)>
+  Copyright (c) 2017 Sean Fisher <[https://www.seafish.io](seafish.io)>
 
 ## Thanks
 
