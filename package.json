@@ -1,6 +1,6 @@
 {
   "name": "passport-microsoft",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Microsoft [Graph] authentication strategy for Passport.",
   "keywords": [
     "passport",
