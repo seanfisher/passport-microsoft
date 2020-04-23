@@ -70,7 +70,7 @@ For a complete, working example, refer to the [login example](https://github.com
   - [Sean Fisher](https://www.seafish.io) - [passport-microsoft on Github](https://github.com/seanfisher/passport-microsoft)
   - [Sluggy Bear](http://github.com/slugbay) - Original [Microsoft OneDrive](https://github.com/slugbay/passport-onedrive) strategy, upon which this is based
 
-  Copyright (c) 2017 Sean Fisher <[seafish.io](https://www.seafish.io)>
+  Copyright (c) 2020 Sean Fisher <[seafish.io](https://www.seafish.io)>
 
 ## Thanks
 
