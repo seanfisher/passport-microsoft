@@ -30,7 +30,8 @@ Microsoft's developer site.
     passport.use(new MicrosoftStrategy({
         clientID: 'applicationidfrommicrosoft',
         clientSecret: 'applicationsecretfrommicrosoft',
-        callbackURL: "http://localhost:3000/auth/microsoft/callback"
+        callbackURL: "http://localhost:3000/auth/microsoft/callback",
+        scope: ['user.read']
       },
       function(accessToken, refreshToken, profile, done) {
         User.findOrCreate({ userId: profile.id }, function (err, user) {
