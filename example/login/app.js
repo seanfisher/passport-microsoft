@@ -30,7 +30,8 @@ passport.deserializeUser(function (obj, done) {
 passport.use(new MicrosoftStrategy({
   clientID: MICROSOFT_GRAPH_CLIENT_ID,
   clientSecret: MICROSOFT_GRAPH_CLIENT_SECRET,
-  callbackURL: "http://127.0.0.1:3000/auth/microsoft/callback"
+  callbackURL: "http://localhost:3000/auth/microsoft/callback",
+  scope: ['user.read']
 },
   function (accessToken, refreshToken, profile, done) {
     // asynchronous verification, for effect...
