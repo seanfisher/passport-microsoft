@@ -1,15 +1,13 @@
 var express = require('express')
   , passport = require('passport')
-  , util = require('util')
   , MicrosoftStrategy = require('passport-microsoft').Strategy
   , morgan = require('morgan')
-  , cookieParser = require('cookie-parser')
   , bodyParser = require('body-parser')
   , methodOverride = require('method-override')
   , session = require('express-session');
 
-var MICROSOFT_GRAPH_CLIENT_ID = "---your--microsoft--graph--client--id---"
-var MICROSOFT_GRAPH_CLIENT_SECRET = "---your--microsoft--graph--client--secret--";
+var MICROSOFT_GRAPH_CLIENT_ID = '---your--microsoft--graph--client--id---';
+var MICROSOFT_GRAPH_CLIENT_SECRET = '---your--microsoft--graph--client--secret--';
 
 
 // Passport session setup.
@@ -35,20 +33,20 @@ passport.deserializeUser(function (obj, done) {
 passport.use(new MicrosoftStrategy({
   clientID: MICROSOFT_GRAPH_CLIENT_ID,
   clientSecret: MICROSOFT_GRAPH_CLIENT_SECRET,
-  callbackURL: "http://localhost:3000/auth/microsoft/callback",
+  callbackURL: 'http://localhost:3000/auth/microsoft/callback',
   scope: ['user.read']
 },
-  function (accessToken, refreshToken, profile, done) {
-    // asynchronous verification, for effect...
-    process.nextTick(function () {
+function (accessToken, refreshToken, profile, done) {
+  // asynchronous verification, for effect...
+  process.nextTick(function () {
 
-      // To keep the example simple, the user's Microsoft Graph profile is returned to
-      // represent the logged-in user. In a typical application, you would want
-      // to associate the Microsoft account with a user record in your database,
-      // and return that user instead.
-      return done(null, profile);
-    });
-  }
+    // To keep the example simple, the user's Microsoft Graph profile is returned to
+    // represent the logged-in user. In a typical application, you would want
+    // to associate the Microsoft account with a user record in your database,
+    // and return that user instead.
+    return done(null, profile);
+  });
+}
 ));
 
 var app = express();
@@ -93,6 +91,7 @@ app.get('/auth/microsoft',
     // Optionally add any authentication params here
     // prompt: 'select_account'
   }),
+  // eslint-disable-next-line no-unused-vars
   function (req, res) {
     // The request will be redirected to Microsoft for authentication, so this
     // function will not be called.
@@ -118,7 +117,7 @@ app.use(express.static(__dirname + '/public'));
 
 app.listen(3000);
 
-console.log("App running on http://localhost:3000");
+console.log('App running on http://localhost:3000');
 
 // Simple route middleware to ensure user is authenticated.
 //   Use this route middleware on any resource that needs to be protected.  If
@@ -127,5 +126,5 @@ console.log("App running on http://localhost:3000");
 //   login page.
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
-  res.redirect('/login')
+  res.redirect('/login');
 }
