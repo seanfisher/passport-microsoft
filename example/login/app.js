@@ -90,7 +90,10 @@ app.get('/login', function (req, res) {
 //   redirecting the user to the common Microsoft login endpoint. After authorization, Microsoft
 //   will redirect the user back to this application at /auth/microsoft/callback
 app.get('/auth/microsoft',
-  passport.authenticate('microsoft'),
+  passport.authenticate('microsoft', {
+    // Optionally add any authentication params here
+    // prompt: 'select_account'
+  }),
   function (req, res) {
     // The request will be redirected to Microsoft for authentication, so this
     // function will not be called.

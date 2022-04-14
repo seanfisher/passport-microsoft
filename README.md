@@ -45,11 +45,6 @@ Microsoft's developer site.
 
         // [Optional] The token URL. Defaults to `https://login.microsoftonline.com/${tenant}/oauth2/v2.0/token`
         tokenURL: 'https://login.microsoftonline.com/common/oauth2/v2.0/token',
-
-        // [Optional] Prompt. Defaults to 'select_account'
-        // Some options: 'login', 'none', 'select_account', and 'consent'
-        // A good description of the options here: https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-implicit-grant-flow
-        prompt: 'select_account'
       },
       function(accessToken, refreshToken, profile, done) {
         User.findOrCreate({ userId: profile.id }, function (err, user) {
@@ -69,7 +64,12 @@ application:
 
 ```js
     app.get('/auth/microsoft',
-      passport.authenticate('microsoft'));
+      passport.authenticate('microsoft', {
+        // Optionally define any authentication parameters here
+        // For example, the ones in https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow
+        
+        prompt: 'select_account',
+      }));
 
     app.get('/auth/microsoft/callback', 
       passport.authenticate('microsoft', { failureRedirect: '/login' }),
