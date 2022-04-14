@@ -1,7 +1,12 @@
 var express = require('express')
   , passport = require('passport')
   , util = require('util')
-  , MicrosoftStrategy = require('passport-microsoft').Strategy;
+  , MicrosoftStrategy = require('passport-microsoft').Strategy
+  , morgan = require('morgan')
+  , cookieParser = require('cookie-parser')
+  , bodyParser = require('body-parser')
+  , methodOverride = require('method-override')
+  , session = require('express-session');
 
 var MICROSOFT_GRAPH_CLIENT_ID = "---your--microsoft--graph--client--id---"
 var MICROSOFT_GRAPH_CLIENT_SECRET = "---your--microsoft--graph--client--secret--";
@@ -49,21 +54,22 @@ passport.use(new MicrosoftStrategy({
 var app = express();
 
 // configure Express
-app.configure(function () {
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'ejs');
-  app.use(express.logger());
-  app.use(express.cookieParser());
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-  app.use(express.session({ secret: 'keyboard cat' }));
-  // Initialize Passport!  Also use passport.session() middleware, to support
-  // persistent login sessions (recommended).
-  app.use(passport.initialize());
-  app.use(passport.session());
-  app.use(app.router);
-  app.use(express.static(__dirname + '/public'));
-});
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
+app.use(morgan('dev'));
+// app.use(cookieParser());
+app.use(bodyParser.json());
+app.use(methodOverride());
+app.use(session({ 
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true
+}));
+// Initialize Passport!  Also use passport.session() middleware, to support
+// persistent login sessions (recommended).
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 
 app.get('/', function (req, res) {
@@ -106,8 +112,11 @@ app.get('/logout', function (req, res) {
   res.redirect('/');
 });
 
+app.use(express.static(__dirname + '/public'));
+
 app.listen(3000);
 
+console.log("App running on http://localhost:3000");
 
 // Simple route middleware to ensure user is authenticated.
 //   Use this route middleware on any resource that needs to be protected.  If
