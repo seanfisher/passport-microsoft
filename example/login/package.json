@@ -24,5 +24,8 @@
   },
   "scripts": {
     "start": "node app.js"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
