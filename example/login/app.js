@@ -30,8 +30,8 @@ passport.deserializeUser(function (obj, done) {
 
 // Use the MicrosoftStrategy within Passport.
 //   Strategies in Passport require a `verify` function, which accept
-//   credentials (in this case, an accessToken, refreshToken, and 37signals
-//   profile), and invoke a callback with a user object.
+//   credentials (in this case, an accessToken, refreshToken, and profile),
+//   and invoke a callback with a user object.
 passport.use(new MicrosoftStrategy({
   clientID: MICROSOFT_GRAPH_CLIENT_ID,
   clientSecret: MICROSOFT_GRAPH_CLIENT_SECRET,
@@ -53,11 +53,10 @@ passport.use(new MicrosoftStrategy({
 
 var app = express();
 
-// configure Express
+// Basic Express configuration
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.use(morgan('dev'));
-// app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(methodOverride());
 app.use(session({ 
@@ -65,11 +64,11 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
+
 // Initialize Passport!  Also use passport.session() middleware, to support
 // persistent login sessions (recommended).
 app.use(passport.initialize());
 app.use(passport.session());
-
 
 
 app.get('/', function (req, res) {
