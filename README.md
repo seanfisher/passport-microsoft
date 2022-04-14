@@ -28,10 +28,28 @@ Microsoft's developer site.
 ```js
     var MicrosoftStrategy = require('passport-microsoft').Strategy;
     passport.use(new MicrosoftStrategy({
+        // Standard OAuth2 options
         clientID: 'applicationidfrommicrosoft',
         clientSecret: 'applicationsecretfrommicrosoft',
         callbackURL: "http://localhost:3000/auth/microsoft/callback",
-        scope: ['user.read']
+        scope: ['user.read'],
+
+        // Microsoft specific options
+
+        // [Optional] The tenant for the application. Defaults to 'common'. 
+        // Used to construct the authorizationURL and tokenURL
+        tenant: 'common',
+
+        // [Optional] The authorization URL. Defaults to `https://login.microsoftonline.com/${tenant}/oauth2/v2.0/authorize`
+        authorizationURL: 'https://login.microsoftonline.com/common/oauth2/v2.0/authorize',
+
+        // [Optional] The token URL. Defaults to `https://login.microsoftonline.com/${tenant}/oauth2/v2.0/token`
+        tokenURL: 'https://login.microsoftonline.com/common/oauth2/v2.0/token',
+
+        // [Optional] Prompt. Defaults to 'select_account'
+        // Some options: 'login', 'none', 'select_account', and 'consent'
+        // A good description of the options here: https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-implicit-grant-flow
+        prompt: 'select_account'
       },
       function(accessToken, refreshToken, profile, done) {
         User.findOrCreate({ userId: profile.id }, function (err, user) {
