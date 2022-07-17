@@ -22,7 +22,7 @@ The microsoft authentication strategy authenticates users using a microsoft acco
 accepts these credentials and calls `done` providing a user, as well as
 `options` specifying a client ID, client secret, and callback URL.
 
-The consumer key and secret are obtained by [creating an application](https://apps.dev.microsoft.com/#/appList) at
+The consumer key and secret are obtained by [creating an application]([https://apps.dev.microsoft.com/#/appList](https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) at
 Microsoft's developer site.
 
 ```js
