@@ -32,6 +32,7 @@
   ],
   "main": "./lib/",
   "dependencies": {
+    "fast-xml-parser": "^4.2.7",
     "passport-oauth2": "1.6.1"
   },
   "engines": {
