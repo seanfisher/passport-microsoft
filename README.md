@@ -18,7 +18,7 @@ Install via [npm](https://www.npmjs.com/package/passport-microsoft)
 
 #### Configure Strategy
 
-The microsoft authentication strategy authenticates users using a microsoft account and OAuth 2.0 tokens.  The strategy requires a `verify` callback, which
+The Microsoft authentication strategy authenticates users using a Microsoft account and OAuth 2.0 tokens.  The strategy requires a `verify` callback, which
 accepts these credentials and calls `done` providing a user, as well as
 `options` specifying a client ID, client secret, and callback URL.
 
@@ -36,7 +36,7 @@ Microsoft's developer site.
 
         // Microsoft specific options
 
-        // [Optional] The tenant for the application. Defaults to 'common'. 
+        // [Optional] The tenant ID for the application. Defaults to 'common'. 
         // Used to construct the authorizationURL and tokenURL
         tenant: 'common',
 
@@ -45,6 +45,9 @@ Microsoft's developer site.
 
         // [Optional] The token URL. Defaults to `https://login.microsoftonline.com/${tenant}/oauth2/v2.0/token`
         tokenURL: 'https://login.microsoftonline.com/common/oauth2/v2.0/token',
+
+        // [Optional] The Microsoft Graph API version (e.g., 'v1.0', 'beta'). Defaults to 'v1.0'.
+        graphApiVersion: 'v1.0'
       },
       function(accessToken, refreshToken, profile, done) {
         User.findOrCreate({ userId: profile.id }, function (err, user) {
