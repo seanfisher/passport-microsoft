@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0] - 2024-07-21
+
+### Added
+- The User Principal Name (UPN) is now added onto a custom profile field called `userPrincipalName`.
+
+### Changed
+- [BREAKING] Treating the User Principal Name (UPN) as an email address is now opt-in functionality. To maintain existing behavior, set the `addUPNAsEmail` option to `true` when configuring the strategy.
+- The `emails` array in the user profile can now contain zero or multiple email addresses
+
 ## [1.1.0] - 2024-07-21
 
 ### Added
