@@ -39,6 +39,9 @@ passport.use(new MicrosoftStrategy({
   
   // Optional, uses 'common' as the default
   tenant: MICROSOFT_GRAPH_TENANT_ID,
+
+  // Optional, whether or not to include the User Principal Name into the emails field in the user profile
+  addUPNAsEmail: false,
 },
 function (accessToken, refreshToken, profile, done) {
   // asynchronous verification, for effect...
