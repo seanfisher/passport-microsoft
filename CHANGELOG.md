@@ -6,6 +6,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2024-07-21
+
+### Added
+- Can now specify the Microsoft Graph API version as a config option
+
+### Changed
+- Upgraded dependencies of main library
+- Upgraded dependencies of example application
+
+### Removed
+- Removed dependency on pkginfo to facilitate bundling
+
+### Deprecated
+- Adding the User Principal Name (UPN) as an email address every time a `mail` property can't be found will be changed to opt-in behavior in future versions to avoid giving the impression that the UPN is always semantically a valid email
+
 ## [1.0.0] - 2022-04-14
 
 The API/design is stable enough that this is marked as the 1.0.0 release.
