@@ -47,7 +47,10 @@ Microsoft's developer site.
         tokenURL: 'https://login.microsoftonline.com/common/oauth2/v2.0/token',
 
         // [Optional] The Microsoft Graph API version (e.g., 'v1.0', 'beta'). Defaults to 'v1.0'.
-        graphApiVersion: 'v1.0'
+        graphApiVersion: 'v1.0',
+
+        // [Optional] If true, will push the User Principal Name into the `emails` array in the Passport.js profile. Defaults to false.
+        addUPNAsEmail: false,
       },
       function(accessToken, refreshToken, profile, done) {
         User.findOrCreate({ userId: profile.id }, function (err, user) {
