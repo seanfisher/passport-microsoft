@@ -8,6 +8,7 @@ var express = require('express')
 
 var MICROSOFT_GRAPH_CLIENT_ID = '---your--microsoft--graph--client--id---';
 var MICROSOFT_GRAPH_CLIENT_SECRET = '---your--microsoft--graph--client--secret--';
+var MICROSOFT_GRAPH_TENANT_ID = 'common'; // or '---your--microsoft--graph--client--secret--';
 
 
 // Passport session setup.
@@ -34,7 +35,10 @@ passport.use(new MicrosoftStrategy({
   clientID: MICROSOFT_GRAPH_CLIENT_ID,
   clientSecret: MICROSOFT_GRAPH_CLIENT_SECRET,
   callbackURL: 'http://localhost:3000/auth/microsoft/callback',
-  scope: ['user.read']
+  scope: ['user.read'],
+  
+  // Optional, uses 'common' as the default
+  tenant: MICROSOFT_GRAPH_TENANT_ID,
 },
 function (accessToken, refreshToken, profile, done) {
   // asynchronous verification, for effect...
