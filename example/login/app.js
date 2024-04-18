@@ -42,6 +42,9 @@ passport.use(new MicrosoftStrategy({
 
   // Optional, whether or not to include the User Principal Name into the emails field in the user profile
   addUPNAsEmail: false,
+
+  // Optional, set this when you use a regional Microsoft Graph endpoint. Defaults to 'https://graph.microsoft.com'
+  apiEntryPoint: 'https://graph.microsoft.com'
 },
 function (accessToken, refreshToken, profile, done) {
   // asynchronous verification, for effect...
