@@ -1,6 +1,7 @@
 {
   "name": "passport-microsoft",
   "version": "2.1.0",
+  "license" : "MIT",
   "description": "Microsoft [Graph] authentication strategy for Passport.",
   "keywords": [
     "passport",
