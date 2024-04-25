@@ -51,8 +51,9 @@ Microsoft's developer site.
 
         // [Optional] If true, will push the User Principal Name into the `emails` array in the Passport.js profile. Defaults to false.
         addUPNAsEmail: false,
-        // [Optional] The Microsoft Graph API Entry Point, defaults to https://graph.microsoft.com. Configure this if you are using azure China or other reginal version.
-        apiEntryPoint: "https://graph.microsoft.com",
+        
+        // [Optional] The Microsoft Graph API Entry Point, defaults to https://graph.microsoft.com. Configure this if you are using Azure China or other regional version.
+        apiEntryPoint: 'https://graph.microsoft.com',
       },
       function(accessToken, refreshToken, profile, done) {
         User.findOrCreate({ userId: profile.id }, function (err, user) {
