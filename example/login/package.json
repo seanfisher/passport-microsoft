@@ -13,10 +13,10 @@
   },
   "dependencies": {
     "body-parser": "^1.20.2",
-    "cookie-parser": "^1.4.6",
+    "cookie-parser": "^1.4.7",
     "ejs": "^3.1.10",
-    "express": "^4.19.2",
-    "express-session": "^1.18.0",
+    "express": "^4.21.2",
+    "express-session": "^1.18.2",
     "method-override": "^3.0.0",
     "morgan": "^1.10.0",
     "passport": "^0.7.0",
